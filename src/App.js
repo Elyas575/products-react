@@ -14,8 +14,8 @@ function App() {
       <ColorfulBar />
       <WelcomeSection />  
         <Routes>
-          <Route  path="/" element={ <AllCardsPage /> } />     
-          <Route path="/product/:cardId" element={ <CardDetailsPage /> }  />
+          <Route  path="/products-react/" element={ <AllCardsPage /> } />     
+          <Route path="/products-react/:cardId" element={ <CardDetailsPage /> }  />
         </Routes>
       <Footer/>
     </div>
