@@ -16,7 +16,7 @@ function App() {
       <Routes>
         <Route path='/products-react' element={ <AllCardsPage />} />
         <Route path='/products-react/' element={ <AllCardsPage />} />
-        <Route path="/products-react/:cardId" element={<CardDetailsPage />} />
+        <Route path="/product/:cardId" element={<CardDetailsPage />} />
       </Routes>
       <Footer/>
     </div>
