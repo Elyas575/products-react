@@ -5,7 +5,7 @@ import GenerateStars from "../../layout/Stars/Stars";
 const Card = ({ cardData }) => {
 
   return (
-    <Link to={`/products-react//${cardData.id}`} className="card-link">
+    <Link to={`/products-react/${cardData.id}`} className="card-link">
       <div className="card">
         <img className="banner-image" src={require(`../../Images/${cardData.image}`)} alt={cardData.title}/>
         <div className="card-details">
