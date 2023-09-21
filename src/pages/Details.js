@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import GenerateStars from '../layout/StarsGenerator/GenerateStars';
+import LoadingIndicator from '../components/Loading/LoadingIndicator';
 
 const CardDetailsPage = () => {
   const { cardId } = useParams();
@@ -23,7 +24,7 @@ const CardDetailsPage = () => {
   const [isLoading,setIsLoading] = useState(true);
   
   if(isLoading){
-    return<p> Loading... </p>
+    return <LoadingIndicator/>
   } 
 
   return (

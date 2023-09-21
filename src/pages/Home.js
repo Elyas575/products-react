@@ -1,5 +1,6 @@
 import CardsContainer from "../components/Cards/CardsContainer";
 import { useState, useEffect } from "react";
+import LoadingIndicator from "../components/Loading/LoadingIndicator";
 const AllCardsPage = () => {
 
   const [loadedCards,setLoadedCards] = useState();
@@ -19,7 +20,7 @@ const AllCardsPage = () => {
   },[]);
 
 if(isLoading){
-  return<p> Loading... </p>
+  return <LoadingIndicator />
 } 
 
   return (
