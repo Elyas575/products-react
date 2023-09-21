@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import GenerateStars from "../../layout/StarsGenerator/GenerateStars";
+import GenerateStars from "../../layout/Stars/Stars";
 
 const Card = ({ cardData }) => {
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import GenerateStars from '../layout/StarsGenerator/GenerateStars';
+import GenerateStars from '../layout/Stars/Stars';
 import LoadingIndicator from '../components/Loading/LoadingIndicator';
 
 const CardDetailsPage = () => {
