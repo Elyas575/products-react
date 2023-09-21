@@ -13,10 +13,11 @@ function App() {
       <Navigation />
       <ColorfulBar />
       <WelcomeSection />  
-        <Routes basename="/products-react">
-          <Route path="/" element={ <AllCardsPage /> } />     
-          <Route path="/product/:cardId" element={ <CardDetailsPage /> }  />
-        </Routes>
+      <Routes>
+        <Route path='/products-react' element={ <AllCardsPage />} />
+        <Route path='/products-react/' element={ <AllCardsPage />} />
+        <Route path="/product/:cardId" element={<CardDetailsPage />} />
+      </Routes>
       <Footer/>
     </div>
   );
