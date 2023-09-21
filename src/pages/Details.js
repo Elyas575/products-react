@@ -7,17 +7,14 @@ const CardDetailsPage = () => {
   const { cardId } = useParams();
 
 
-    const [loadedCards,setLoadedCards] = useState();
+    const [loadedCard,setLoadedCard] = useState();
     let url = `https://tap-web-1.herokuapp.com/topics/details/${cardId}`;
     useEffect(() => {
       fetch(url).then( response => {
         return response.json();
       }).then(data => {
-        console.log(data);
-  
         setIsLoading(false)
-        setLoadedCards(data);
-        console.log(loadedCards)
+        setLoadedCard(data);
       });
     },[]);
   
@@ -32,26 +29,26 @@ const CardDetailsPage = () => {
       <div class="main-1">
         <div class="content">
           <div class="box-details-upper">
-            <p class="category-title">{loadedCards.category}</p>
+            <p class="category-title">{loadedCard.category}</p>
             <h2 class="category-name">
-              <b>{loadedCards.title}</b>
+              <b>{loadedCard.title}</b>
             </h2>
             <div class="stars-product-container">
-            <GenerateStars ratings={loadedCards.rating}/>
+            <GenerateStars ratings={loadedCard.rating}/>
             </div>
 
-            <p class="topic-text">{loadedCards.description}</p>
+            <p class="topic-text">{loadedCard.description}</p>
           </div>
 
           <div class="product-card">
-            <img class="product-image" src={require(`../Images/${loadedCards.image}`)} alt={loadedCards.title} />
+            <img class="product-image" src={require(`../Images/${loadedCard.image}`)} alt={loadedCard.title} />
 
             <div class="product-lower-container">
               <div class="product-author-container">
                 <p class="product-author">
-                  <span class="author-category"> {loadedCards.topic} </span>
+                  <span class="author-category"> {loadedCard.topic} </span>
                   by 
-                  <a href=""> {loadedCards.name} </a>
+                  <a href=""> {loadedCard.name} </a>
                 </p>
 
                 <div class="product-card-details">
@@ -78,7 +75,7 @@ const CardDetailsPage = () => {
           <div class="box-details-upper-2" id="boxDetailsUpper">
             <h2 id="subTopics">HTML Sub Topics</h2>
             <ul>
-              {loadedCards.subtopics.map((subtopic, index) => (
+              {loadedCard.subtopics.map((subtopic, index) => (
                 <li key={index}>
                   <ion-icon name="checkmark-circle-outline"></ion-icon>
                   {subtopic}
