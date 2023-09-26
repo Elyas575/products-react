@@ -1,6 +1,7 @@
 import CardsContainer from "../components/Cards/CardsContainer";
 import { useState, useEffect } from "react";
 import LoadingIndicator from "../components/Loading/LoadingIndicator";
+import SearchFilterSection from "../components/SearchFilter/SearchFilter";
 const AllCardsPage = () => {
 
   const [loadedCards,setLoadedCards] = useState();
@@ -22,12 +23,17 @@ if(isLoading){
 } 
 
   return (
-    <div className="main">
-         <div>Search here</div>
-      <div>
-        <CardsContainer data={loadedCards} /> 
+    <div className="container">
+        <div className="main">
+          <div>
+                <SearchFilterSection />
+          </div>
+        <div>
+          <CardsContainer data={loadedCards} /> 
+        </div>
       </div>
     </div>
+
   );
 };
 
