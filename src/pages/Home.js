@@ -1,39 +1,55 @@
+import React from "react";
 import CardsContainer from "../components/Cards/CardsContainer";
 import { useState, useEffect } from "react";
 import LoadingIndicator from "../components/Loading/LoadingIndicator";
 import SearchFilterSection from "../components/SearchFilter/SearchFilter";
+import { LoadedCards } from "../API/FetchCards";
+
 const AllCardsPage = () => {
+  const [loadedCards, setLoadedCards] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [viewTopics, setViewTopics] = useState(null);
+  const [error, setError] = useState(null);
+  const [search, setSearch] = useState("");
+  const [sortBy, setSortBy] = useState();
+  const [filterBy, setFilterBy] = useState();
+  const [filterOptions, setFilterOptions] = useState(null);
 
-  const [loadedCards,setLoadedCards] = useState();
-  const [isLoading,setIsLoading] = useState(true);
-
-  
-  const url = "https://tap-web-1.herokuapp.com/topics/list";
   useEffect(() => {
-    fetch(url).then( response => {
-      return response.json();
-    }).then(data => {
-      setIsLoading(false)
-      setLoadedCards(data);
-    });
-  },[]);
+    LoadedCards(search)
+      .then((data) => {
+        setLoadedCards(data);
+      })
+      .catch((error) => {
+        setError(error);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }, [search]);
 
-if(isLoading){
-  return <LoadingIndicator />
-} 
+  useEffect(() => {
+    if (loadedCards) {
+      setViewTopics(loadedCards);
+    }
+  }, [loadedCards]);
+
+  if (isLoading) {
+    return <LoadingIndicator />;
+  }
 
   return (
     <div className="container">
-        <div className="main">
-          <div>
-                <SearchFilterSection />
-          </div>
+      <div className="main">
         <div>
-          <CardsContainer data={loadedCards} /> 
+          <SearchFilterSection />
+        </div>
+        <div>
+   
+          {viewTopics ? <CardsContainer data={viewTopics} /> : <LoadingIndicator />}
         </div>
       </div>
     </div>
-
   );
 };
 

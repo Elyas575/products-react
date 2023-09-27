@@ -2,10 +2,13 @@ import React from "react";
 import Card from "./Card"
 
 const CardsContainer = ({ data })  => {
-  return (
-    <div className="wrapper-grid">
-      {data.map( (cardData, index) => (
-        <Card key={index} cardData={cardData} />
+  if (data === null || data === undefined) {
+    return <p>Loading...</p>;
+  }
+
+  return ( <div className="wrapper-grid">
+      {data.map( (cardData) => (
+        <Card key={cardData.id} cardData={cardData} />
       ))
     }
     </div>

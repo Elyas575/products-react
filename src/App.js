@@ -5,6 +5,9 @@ import  Navigation from './layout/Header/Navigation'
 import ColorfulBar from './layout/ColorfulBar/ColorfulBar';
 import WelcomeSection from './layout/WelcomeSection/WelcomeSection';
 import Footer from './layout/Footer/Footer';
+import "./pages//styles/variables.css"
+import "./pages//styles/home.css"
+import "./pages//styles/details.css"
 
 function App() {
 

@@ -7,8 +7,7 @@
         id="search"
         type="text"
         class="search-input"
-        placeholder="Search the website..."
-      />
+        placeholder="Search the website..."/>
     </div>
     <div class="dropdowns">
       <div class="sort-content">

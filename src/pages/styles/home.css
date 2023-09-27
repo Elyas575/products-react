@@ -305,6 +305,7 @@ nav {
 
 @media screen and (max-width: 767px) {
   .card {
+    height: 100%;
     width: 100%;
   }
 
@@ -320,6 +321,7 @@ nav {
 
 @media screen and (min-width: 676px) and (max-width: 1249px) {
   .card {
+    height: 100%;
     width: 100%;
   }
 
@@ -332,6 +334,7 @@ nav {
 
 @media screen and (min-width: 1249px) {
   .card {
+    height: 100%;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
