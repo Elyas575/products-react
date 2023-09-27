@@ -69,7 +69,29 @@ const AllCardsPage = () => {
     <div className="container">
       <div className="main">
         <div>
-          <SearchFilterSection value={search} onChange={ (event) => setSearch(event.target.value) } />
+          <SearchFilterSection
+          value={search}
+          onChangeSearch={ (event) => setSearch(event.target.value) } 
+
+          label1="Sort By:"
+          value1 ={sortBy}
+          options1 = {[
+            {title:"Default",value:""},
+            {title:"Author",value:"AUTHOR"},
+            {title:"Name",value:"TOPIC"},
+          ]}
+          onChange1={(event)=> { setSortBy(event.target.value)} }
+          
+          label2="Filter By"
+          value2={filterBy}
+          options2={filterOptions.map( category => ({title:category}))}
+          onChange2={ (event) => {setFilterBy(event.target.value)}}/>
+
+          
+
+     
+
+
         </div>
         <div>
    
