@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/products-react/static/css/main.4e4674c5.css",
-    "main.js": "/products-react/static/js/main.024f4a01.js",
+    "main.css": "/products-react/static/css/main.11c14df6.css",
+    "main.js": "/products-react/static/js/main.8bd650e4.js",
     "static/media/analytics.png": "/products-react/static/media/analytics.7e81c6ec23532162f2ea.png",
     "static/media/angular.png": "/products-react/static/media/angular.fe7fe0b7dad8f1ba6bbd.png",
     "static/media/graphql.png": "/products-react/static/media/graphql.94da3de726a7948a2b53.png",
@@ -39,11 +39,11 @@
     "static/media/expressjs.webp": "/products-react/static/media/expressjs.2ae1dc58f7c5318ca228.webp",
     "static/media/react.webp": "/products-react/static/media/react.55afe679a76823cdda39.webp",
     "index.html": "/products-react/index.html",
-    "main.4e4674c5.css.map": "/products-react/static/css/main.4e4674c5.css.map",
-    "main.024f4a01.js.map": "/products-react/static/js/main.024f4a01.js.map"
+    "main.11c14df6.css.map": "/products-react/static/css/main.11c14df6.css.map",
+    "main.8bd650e4.js.map": "/products-react/static/js/main.8bd650e4.js.map"
   },
   "entrypoints": [
-    "static/css/main.4e4674c5.css",
-    "static/js/main.024f4a01.js"
+    "static/css/main.11c14df6.css",
+    "static/js/main.8bd650e4.js"
   ]
 }
