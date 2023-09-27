@@ -1,4 +1,4 @@
- const SearchFilterSection = () => {
+ const SearchFilterSection = ({ onChange, value }) => {
   return (
     <div class="search-filter-container">
     <div class="search-bar">
@@ -7,6 +7,8 @@
         id="search"
         type="text"
         class="search-input"
+        value={value}
+        onChange={onChange}
         placeholder="Search the website..."/>
     </div>
     <div class="dropdowns">

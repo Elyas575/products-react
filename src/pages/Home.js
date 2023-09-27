@@ -6,22 +6,26 @@ import SearchFilterSection from "../components/SearchFilter/SearchFilter";
 import { LoadedCards } from "../API/FetchCards";
 
 const AllCardsPage = () => {
-  const [loadedCards, setLoadedCards] = useState(null);
+  const [loadedCards, setLoadedCards] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [viewTopics, setViewTopics] = useState(null);
   const [error, setError] = useState(null);
-  const [search, setSearch] = useState("");
-  const [sortBy, setSortBy] = useState();
-  const [filterBy, setFilterBy] = useState();
+  const [search, setSearch] = useState('');
+  const [sortBy, setSortBy] = useState(null);
+  const [filterBy, setFilterBy] = useState(null);
   const [filterOptions, setFilterOptions] = useState(null);
 
   useEffect(() => {
     LoadedCards(search)
       .then((data) => {
         setLoadedCards(data);
+        setIsLoading(false); 
+
       })
       .catch((error) => {
         setError(error);
+        setIsLoading(false); 
+        
       })
       .finally(() => {
         setIsLoading(false);
@@ -30,9 +34,32 @@ const AllCardsPage = () => {
 
   useEffect(() => {
     if (loadedCards) {
-      setViewTopics(loadedCards);
+      let categories = new Set(); 
+      loadedCards.forEach(card => categories.add(card.category));
+      setFilterOptions([...categories]);
+      console.log(categories)
+  
+      let updatedCards = [...loadedCards];
+      if (sortBy) {
+        updatedCards.sort((a, b) => {
+          switch (sortBy) {
+            case "AUTHOR":
+              return a['name'] < b['name'] ? -1 : 1;
+            case "TOPIC":
+              return a['topic'] < b['topic'] ? -1 : 1;
+            default:
+              throw `unknown sort by object ${sortBy}`;
+          }
+        });
+      }
+  
+      if (filterBy) {
+        updatedCards = updatedCards.filter(card => card.category === filterBy);
+      }
+      setViewTopics(updatedCards);
     }
-  }, [loadedCards]);
+  }, [loadedCards, sortBy, filterBy]);
+
 
   if (isLoading) {
     return <LoadingIndicator />;
@@ -42,7 +69,7 @@ const AllCardsPage = () => {
     <div className="container">
       <div className="main">
         <div>
-          <SearchFilterSection />
+          <SearchFilterSection value={search} onChange={ (event) => setSearch(event.target.value) } />
         </div>
         <div>
    
